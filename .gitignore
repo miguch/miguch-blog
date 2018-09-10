@@ -1,3 +1,4 @@
 *.sql
 *.m
 *.m~
+.DS_Store
