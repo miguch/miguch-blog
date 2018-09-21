@@ -4,7 +4,7 @@
 
 ## 材料准备
 
-本文使用配置为1.6 GHz Intel Core i5，内存8GB 的 MacBook Air 机器在 macOS 环境下安装。
+本文使用配置为Intel(R) Core(TM) i5-5250U CPU @ 1.60GHz，内存8GB 的 MacBook Air 机器在 macOS 环境下安装。
 
 VirtualBox 版本为5.2.18，文中远程桌面访问需额外安装 VirtualBox Extension Pack 扩展。
 
@@ -18,7 +18,7 @@ Ubuntu Server 18.04.1 LTS镜像：https://www.ubuntu.com/download/server/thank-y
 
 ###2-配置虚拟网卡
 
-创建虚拟机后点击右上角管理->主机网络管理器
+创建虚拟机后点击左上角管理->主机网络管理器
 
 ![1](SC-virtualBox/1.png)
 
@@ -57,6 +57,26 @@ Ubuntu Server 18.04.1 LTS镜像：https://www.ubuntu.com/download/server/thank-y
 先输入`sudo netplan generate` 生成配置，然后修改`/etc/netplan/50-cloud-init.yaml`文件输入配置内容：
 
 ![9](/Users/mig/Desktop/algorithm-blog/SC-virtualBox/9.png)
+
+
+
+```yaml
+network:
+    ethernets:
+        enp0s3:
+            addresses: []
+            dhcp4: true
+        enp0s8:
+            addresses:
+            - 192.168.100.101/24
+            dhcp4: false
+            nameservers:
+                addresses: []
+                search: []
+    version: 2
+```
+
+
 
 保存退出后输入`sudo netplan apply` 应用配置。
 
