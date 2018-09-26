@@ -20,31 +20,31 @@ Ubuntu Server 18.04.1 LTS镜像：https://www.ubuntu.com/download/server/thank-y
 
 创建虚拟机后点击左上角管理->主机网络管理器
 
-![1](SC-virtualBox/1.png)
+![1](screenshoot/1.png)
 
 打开管理器后新建虚拟网卡，输入所需要的配置，这一步的目的是要使宿主机通过虚拟网卡的设置来连接至虚拟机：
 
-![2](/Users/mig/Desktop/algorithm-blog/SC-virtualBox/2.png)
+![2](/Users/mig/Desktop/algorithm-blog/screenshoot/2.png)
 
-![3](/Users/mig/Desktop/algorithm-blog/SC-virtualBox/3.png)
+![3](/Users/mig/Desktop/algorithm-blog/screenshoot/3.png)
 
 经过这一步后，在终端中输入命令`ifconfig` （Windows 下为`ipconfig`）应当可以看到一个刚才所配置的网卡：
 
-![6](/Users/mig/Desktop/algorithm-blog/SC-virtualBox/6.png)
+![6](/Users/mig/Desktop/algorithm-blog/screenshoot/6.png)
 
 配置完虚拟网卡后，在虚拟机的设置界面->网络中，配置网卡1为NAT 方式，网卡2为Host-Only，并连接刚才所创建的虚拟网卡：
 
-![4](/Users/mig/Desktop/algorithm-blog/SC-virtualBox/4.png)
+![4](/Users/mig/Desktop/algorithm-blog/screenshoot/4.png)
 
 
 
-![5](/Users/mig/Desktop/algorithm-blog/SC-virtualBox/5.png)
+![5](/Users/mig/Desktop/algorithm-blog/screenshoot/5.png)
 
 接着，点击网卡1->高级->端口转发打开配置窗口，窗口中填入网卡的地址和虚拟机的 ip 地址，端口为 ssh 默认需要使用到的22号端口，若有需要修改了 ssh 配置根据实际情况填入即可。
 
-![7](/Users/mig/Desktop/algorithm-blog/SC-virtualBox/7.png)
+![7](/Users/mig/Desktop/algorithm-blog/screenshoot/7.png)
 
-![8](/Users/mig/Desktop/algorithm-blog/SC-virtualBox/8.png)
+![8](/Users/mig/Desktop/algorithm-blog/screenshoot/8.png)
 
 ### 3-安装系统
 
@@ -56,7 +56,7 @@ Ubuntu Server 18.04.1 LTS镜像：https://www.ubuntu.com/download/server/thank-y
 
 先输入`sudo netplan generate` 生成配置，然后修改`/etc/netplan/50-cloud-init.yaml`文件输入配置内容：
 
-![9](/Users/mig/Desktop/algorithm-blog/SC-virtualBox/9.png)
+![9](/Users/mig/Desktop/algorithm-blog/screenshoot/9.png)
 
 
 
@@ -115,7 +115,7 @@ deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted univ
 
 然后，到虚拟机设置的显示->远程桌面下选择启用服务器，输入配置的内容，这里就只使用了默认的3389端口：
 
-![10](/Users/mig/Desktop/algorithm-blog/SC-virtualBox/10.png)
+![10](/Users/mig/Desktop/algorithm-blog/screenshoot/10.png)
 
 完成后下一步是在虚拟机中安装桌面环境，只需要使用`sudo apt install ubuntu-desktop` 命令即可安装 GNOME桌面环境。因为使用 VirtualBox 的远程桌面功能，所以不需要再在虚拟机中配置远程桌面服务。
 
@@ -123,11 +123,11 @@ deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted univ
 
 在 Microsoft Remote Desktop 应用中，输入虚拟网卡的 ip:端口，以及登录的用户名后即可进行连接：
 
-![11](/Users/mig/Desktop/algorithm-blog/SC-virtualBox/11.png)
+![11](/Users/mig/Desktop/algorithm-blog/screenshoot/11.png)
 
 连接后效果如图：
 
-![12](/Users/mig/Desktop/algorithm-blog/SC-virtualBox/12.png)
+![12](/Users/mig/Desktop/algorithm-blog/screenshoot/12.png)
 
 
 
