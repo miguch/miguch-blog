@@ -69,7 +69,7 @@ module.exports = {
       copyright: [
         {
           text: 'Privacy Policy',
-          link: '/2021/02/18/privacypolicy/',
+          link: '/2021/02/17/privacypolicy/',
         },
         // {
         //   text: 'MIT Licensed | Copyright © 2018-present Vue.js',
