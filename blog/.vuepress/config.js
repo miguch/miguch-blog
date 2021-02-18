@@ -11,6 +11,23 @@ module.exports = {
   },
 
   head: [
+    // Adsense
+    ['script', {
+      'data-ad-client': 'ca-pub-9539082383597390',
+      async: true,
+      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+    }],
+    // Google Analytics
+    ['script', {
+      async: true,
+      src: 'https://www.googletagmanager.com/gtag/js?id=UA-135644242-1'
+    }],
+    ['script', {}, `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-135644242-1');
+    `],
     ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css' }],
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css' }]
   ],
