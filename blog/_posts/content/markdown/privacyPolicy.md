@@ -44,7 +44,7 @@ For users that register on our website (if any), we also store the personal info
 If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.
 
 ## Where we send your data
-Visitor comments may be checked through an automated spam detection service.
+Visitor comments(not available yet) may be checked through an automated spam detection service.
 
 ## Contacts
 You can reach me via i@miguch.com.
