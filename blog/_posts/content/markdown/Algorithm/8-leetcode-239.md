@@ -2,7 +2,7 @@
 date: 2021-2-18
 tags: 
   - LeetCode
-  - 算法
+  - Algorithm
 Author: Miguel Chen
 ---
 # 239. Sliding Window Maximum
