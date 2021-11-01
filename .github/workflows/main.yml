@@ -16,14 +16,14 @@ jobs:
         run: |
           yarn install
           yarn build
-      - uses: webfactory/ssh-agent@v0.4.1
-        with:
-          ssh-private-key: |
-            ${{ secrets.BLOG_DEPLOY_KEY }}
-      - name: Scan public keys
-        run: |
-          ssh-keyscan -p ${{ secrets.SERVER_SSH_PORT }} ${{ secrets.BLOG_DOMAIN }} >> ~/.ssh/known_hosts
-      - name: Deploy
-        run: |
-          rsync -av -e "ssh -p ${{ secrets.SERVER_SSH_PORT }}" blog/.vuepress/dist/ root@${{ secrets.BLOG_DOMAIN }}:${{ secrets.BLOG_SERVER_PATH }}
+      # - uses: webfactory/ssh-agent@v0.4.1
+      #   with:
+      #     ssh-private-key: |
+      #       ${{ secrets.BLOG_DEPLOY_KEY }}
+      # - name: Scan public keys
+      #   run: |
+      #     ssh-keyscan -p ${{ secrets.SERVER_SSH_PORT }} ${{ secrets.BLOG_DOMAIN }} >> ~/.ssh/known_hosts
+      # - name: Deploy
+      #   run: |
+      #     rsync -av -e "ssh -p ${{ secrets.SERVER_SSH_PORT }}" blog/.vuepress/dist/ root@${{ secrets.BLOG_DOMAIN }}:${{ secrets.BLOG_SERVER_PATH }}
 
