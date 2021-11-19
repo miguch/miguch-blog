@@ -1,5 +1,5 @@
 ---
-date: 2021-11-14
+date: 2021-11-19
 tags: 
   - LeetCode
   - Algorithm
@@ -13,7 +13,7 @@ Given an array of `points` where `points[i] = [xi, yi]` represents a point on th
 
 **Example 1:**
 
-<img src="https://assets.leetcode.com/uploads/2021/02/25/plane1.jpg" alt="img" style="zoom:67%;" />
+<img src="./assets/plane1.jpg" alt="img" style="zoom:67%;" />
 
 ```
 Input: points = [[1,1],[2,2],[3,3]]
@@ -22,7 +22,7 @@ Output: 3
 
 **Example 2:**
 
-<img src="assets/plane2.jpg" alt="img" style="zoom:67%;" />
+<img src="./assets/plane2.jpg" alt="img" style="zoom:67%;" />
 
 ```
 Input: points = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]
