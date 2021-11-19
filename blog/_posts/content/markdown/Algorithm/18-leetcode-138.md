@@ -4,6 +4,7 @@ tags:
   - LeetCode
   - Algorithm
   - LinkedList
+  - Medium
 Author: Miguel Chen
 ---
 # 138. Copy List with Random Pointer
