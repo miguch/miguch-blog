@@ -1,9 +1,9 @@
 ---
 date: 2021-2-18
-tags: 
+tags:
   - LeetCode
   - Algorithm
-Author: Miguel Chen
+Author: Mingtao Chen
 ---
 
 # 215. Kth Largest Element in an Array
@@ -26,10 +26,8 @@ Input: [3,2,3,1,2,4,5,5,6] and k = 4
 Output: 4
 ```
 
-**Note:** 
+**Note:**
 You may assume k is always valid, 1 ≤ k ≤ array's length.
-
-
 
 ## Answer
 
@@ -47,18 +45,18 @@ public:
 };
 ```
 
-提交至 LeetCode 运行时间8 ms。
+提交至 LeetCode 运行时间 8 ms。
 
 ### 2
 
 第二种方法思想与快速排序类似，每一次操作从数组中选出一个数值，然后将数组分为三部分：左边为小于该数值的部分，中部为与该数值相等的部分，右部为大于该数值的部分。若要命中的数值的索引在相等的部分，则可直接返回这个数值。否则根据目标索引选择左半边或右半边进行下一步操作。
 
-虽然这种方法在每一次选中的数值只能去除一个元素的极端情况下事件复杂度会达到$O(n^2)$ ，但是由于每次操作选中合适的元素的概率足够高，选中合适元素的操作次数期望值为2，因此令$T(n)$ 为运行时间期望值，则有$T(n) \leq T(3n/4) + O(n)$ .则可得此方法时间复杂度为$O(n)$
+虽然这种方法在每一次选中的数值只能去除一个元素的极端情况下事件复杂度会达到$O(n^2)$ ，但是由于每次操作选中合适的元素的概率足够高，选中合适元素的操作次数期望值为 2，因此令$T(n)$ 为运行时间期望值，则有$T(n) \leq T(3n/4) + O(n)$ .则可得此方法时间复杂度为$O(n)$
 
 ```cpp
 class Solution {
 public:
-    
+
     vector<int> divide(vector<int>& nums, int startIndex, int endIndex) {
         int v = nums[startIndex + (endIndex - startIndex) / 2], vIndex = startIndex;
         int temp = nums[startIndex];

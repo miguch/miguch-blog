@@ -1,9 +1,9 @@
 ---
 date: 2021-2-18
-tags: 
+tags:
   - LeetCode
   - Algorithm
-Author: Miguel Chen
+Author: Mingtao Chen
 ---
 
 # 143. Reorder List (Go 实现)
@@ -31,7 +31,7 @@ Given 1->2->3->4->5, reorder it to 1->5->2->4->3.
 
 最近开始重新学习 Go 语言，所以本题试着用 Go 语言来做。
 
-题目要求将头结点后按照倒数第一个元素，第二个元素，倒数第二个元素，第三个元素这样排下去。具体做法就是先找出中间的节点，方法是使用两个指针分别每步走1 和2 个节点向前遍历，走2步的节点到达末尾时走1步的节点就处在链表中间位置；第二步是将链表的后半部分翻转，以方便第三步的合并。链表翻转的具体方法是从头开始对于链表中的每一个节点将其 next 指向前一节点（若无则置为`nil` ）。第三步就将前两步获得的两半链表进行合并即可获得结果。
+题目要求将头结点后按照倒数第一个元素，第二个元素，倒数第二个元素，第三个元素这样排下去。具体做法就是先找出中间的节点，方法是使用两个指针分别每步走 1 和 2 个节点向前遍历，走 2 步的节点到达末尾时走 1 步的节点就处在链表中间位置；第二步是将链表的后半部分翻转，以方便第三步的合并。链表翻转的具体方法是从头开始对于链表中的每一个节点将其 next 指向前一节点（若无则置为`nil` ）。第三步就将前两步获得的两半链表进行合并即可获得结果。
 
 具体代码实现如下：
 
@@ -54,7 +54,7 @@ func reorderList(head *ListNode)  {
         stepOne = stepOne.Next
         stepTwo = stepTwo.Next.Next
     }
-    //Part Two: Reverse the second half of the list 
+    //Part Two: Reverse the second half of the list
     secondHalf := reverseList(stepOne.Next)
     //Part Three: join the two parts of the list.
     stepOne.Next = nil

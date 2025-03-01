@@ -1,10 +1,11 @@
 ---
 date: 2021-2-18
-tags: 
+tags:
   - LeetCode
   - Algorithm
-Author: Miguel Chen
+Author: Mingtao Chen
 ---
+
 # 778. Swim in Rising Water
 
 ##题目
@@ -49,7 +50,7 @@ We need to wait until time 16 so that (0, 0) and (4, 4) are connected.
 1. `2 <= N <= 50`.
 2. grid[i][j] is a permutation of [0, ..., N*N - 1].
 
-##  Answer
+## Answer
 
 ###1
 
@@ -95,7 +96,7 @@ public:
         }
         return length[n-1][n-1];
     }
-    
+
     static bool isValidPosition(int x, int y, int n) {
         return x >= 0 && y >= 0 && y < n && x < n;
     }
@@ -124,9 +125,9 @@ public:
         }
         return lower;
     }
-    
+
     const pair<int, int> directions[4] = {make_pair(1, 0), make_pair(-1, 0), make_pair(0, 1), make_pair(0, -1)};
-    
+
     bool bfsCheck(const vector<vector<int>>& grid, int t) {
         unordered_set<int> visited;
         queue<int> unvisited;
@@ -139,7 +140,7 @@ public:
             for (auto dir : directions) {
                 int newX = x + dir.first, newY = y + dir.second;
                 if (isValidPosition(newX, newY, grid.size()) &&
-                   grid[newY][newX] <= t && 
+                   grid[newY][newX] <= t &&
                    visited.count(newX + newY * grid.size()) == 0) {
                     if (newX == grid.size() - 1 && newY == grid.size() - 1) {
                         return true;
@@ -152,7 +153,7 @@ public:
         }
         return false;
     }
-    
+
     static bool isValidPosition(int x, int y, int n) {
         return x >= 0 && y >= 0 && y < n && x < n;
     }
@@ -179,7 +180,7 @@ public:
         }
         return lower;
     }
-    
+
     bool dfsCheck(const vector<vector<int>>& grid, int t, int x, int y, unordered_set<int> &visited) {
         const pair<int, int> directions[4] = {make_pair(1, 0), make_pair(-1, 0), make_pair(0, 1), make_pair(0, -1)};
         visited.insert(x + y * grid.size());
@@ -187,7 +188,7 @@ public:
             int newX = x + dir.first;
             int newY = y + dir.second;
             if (isValidPosition(newX, newY, grid.size()) &&
-                t >= grid[newY][newX] && 
+                t >= grid[newY][newX] &&
                 visited.count(newX + newY * grid.size()) == 0) {
                 if (dfsCheck(grid, t, newX, newY, visited)) {
                     return true;
@@ -215,7 +216,7 @@ class Solution {
 public:
     const pair<int, int> directions[4] = {make_pair(1, 0), make_pair(-1, 0), make_pair(0, 1), make_pair(0, -1)};
     typedef pair<int, int> node;
-    
+
     int swimInWater(vector<vector<int>>& grid) {
         int n = grid.size();
         priority_queue<node, vector<node>, function<bool(node,node)>> holding([](node n1, node n2) { return n1.second > n2.second;});
@@ -237,7 +238,7 @@ public:
             }
         }
     }
-    
+
     static bool isValidPosition(int x, int y, int n) {
         return x >= 0 && y >= 0 && y < n && x < n;
     }

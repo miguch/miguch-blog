@@ -1,11 +1,11 @@
 ---
 date: 2021-11-18
-tags: 
+tags:
   - LeetCode
   - Algorithm
   - DP
   - Hard
-Author: Miguel Chen
+Author: Mingtao Chen
 ---
 
 # 132. Palindrome Partitioning II
@@ -13,8 +13,6 @@ Author: Miguel Chen
 Given a string s, partition s such that every substring of the partition is a palindrome.
 
 Return the minimum cuts needed for a palindrome partitioning of s.
-
- 
 
 Example 1:
 
@@ -29,7 +27,6 @@ Example 3:
 
 Input: s = "ab"
 Output: 1
- 
 
 Constraints:
 
@@ -37,7 +34,9 @@ Constraints:
 s consists of lower-case English letters only.
 
 ## Answer
+
 1. get number of cuts for trailing substring at each index. $O(N^3)$ complexity.
+
 ```cpp
 class Solution {
 public:
@@ -65,17 +64,19 @@ public:
         }
         return memo[start];
     }
-    
+
     int minCut(string s) {
         vector<int> memo(s.size(), -1);
         return helper(s, 0, memo);
     }
 };
 ```
+
 Runtime: 460 ms
-Memory: 6.6 MB	
+Memory: 6.6 MB
 
 2. Use dynamic programming to get which substrings are palindrome first. Time complexity is reduced to $O(n^2)$ But also requires $O(n^2)$ space complexity.
+
 ```cpp
 class Solution {
 public:
@@ -110,7 +111,7 @@ public:
         }
         return memo[start];
     }
-    
+
     int minCut(string s) {
         vector<vector<uint8_t>> palins = getPalins(s);
         vector<int> memo(s.size(), -1);
@@ -118,5 +119,6 @@ public:
     }
 };
 ```
+
 Runtime: 60 ms
 Memory: 14.9 MB

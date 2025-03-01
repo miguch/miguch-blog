@@ -1,10 +1,11 @@
 ---
 date: 2021-2-18
-tags: 
+tags:
   - LeetCode
   - Algorithm
-Author: Miguel Chen
+Author: Mingtao Chen
 ---
+
 # 115. Distinct Subsequences
 
 ## 题目
@@ -65,7 +66,7 @@ babgbag
 class Solution {
 public:
     map<pair<int, int>, int> distinct;
-    
+
     int numDistinct(string s, string t, int sIndex = 0, int tIndex = 0) {
         auto p = make_pair(sIndex, tIndex);
         if (distinct.count(p)) return distinct[p];
@@ -85,11 +86,9 @@ public:
 
 提交运行后耗时达到了**656 ms**，在分布表上都不显示了。所以还是不足以接受啊。
 
-根据以上的思路其实可以想到使用动态规划进行求解，使用了一个len(t)+1长度的数组作为状态表dp，dp[i]表示的是从 S 到 T[0:i+1] 有多少种方法。当 len(t) > len(s) 时结果为0，当 S 与 T 相同时结果为1。
+根据以上的思路其实可以想到使用动态规划进行求解，使用了一个 len(t)+1 长度的数组作为状态表 dp，dp[i]表示的是从 S 到 T[0:i+1] 有多少种方法。当 len(t) > len(s) 时结果为 0，当 S 与 T 相同时结果为 1。
 
-对 S 中的每一个字符对 T 进行遍历，若此时 S 的字符与 T 的字符匹配，则将dp 中对应位置加1，表示此时可有额外的一种方法进行删除，当出现dp[k]为0时（k 为此时循环到的 T 的字符的索引），直接进入下一个 S 的字符循环，因为dp[k]为0代表此时 S所循环到的位置无法组成 T 后续的字符串。
-
-
+对 S 中的每一个字符对 T 进行遍历，若此时 S 的字符与 T 的字符匹配，则将 dp 中对应位置加 1，表示此时可有额外的一种方法进行删除，当出现 dp[k]为 0 时（k 为此时循环到的 T 的字符的索引），直接进入下一个 S 的字符循环，因为 dp[k]为 0 代表此时 S 所循环到的位置无法组成 T 后续的字符串。
 
 代码如下：
 
@@ -101,7 +100,7 @@ public:
         if (s.size() < t.size()) return 0;
         vector<int> dp(t.size() + 1, 0);
         dp[0] = 1;
-        
+
         for (int i = 0; i < s.size(); i++) {
             int pre = 1;
             for (int k = 0; k < t.size(); k++) {

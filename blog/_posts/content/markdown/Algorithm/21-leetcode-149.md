@@ -1,15 +1,15 @@
 ---
 date: 2021-11-19
-tags: 
+tags:
   - LeetCode
   - Algorithm
   - Hard
-Author: Miguel Chen
+Author: Mingtao Chen
 ---
 
 # 149. Max Points on a Line
 
-Given an array of `points` where `points[i] = [xi, yi]` represents a point on the **X-Y** plane, return *the maximum number of points that lie on the same straight line*.
+Given an array of `points` where `points[i] = [xi, yi]` represents a point on the **X-Y** plane, return _the maximum number of points that lie on the same straight line_.
 
 **Example 1:**
 
@@ -29,8 +29,6 @@ Input: points = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]
 Output: 4
 ```
 
- 
-
 **Constraints:**
 
 - `1 <= points.length <= 300`
@@ -39,6 +37,7 @@ Output: 4
 - All the `points` are **unique**.
 
 ## Answer
+
 1. The obvious way is to make a map from lines to their points, this will requires $O(n^2)$ time complexity since we are going through all lines by connecting every point with all other points. Space complexity would also be $O(n^2)$ because we are storing all lines and corresponing points.
 
    (Using double to represent slope k here is actually not optimal due to the nature of floating points, but it'll work for this question)
@@ -49,7 +48,7 @@ Output: 4
        int maxPoints(vector<vector<int>>& points) {
            if (points.size() <= 1) {
                return points.size();
-           } 
+           }
            // y=kx+b
            // (k, (b, points set))
            unordered_map<double, unordered_map<double, unordered_set<vector<int>*>>> lineCounts;
@@ -69,7 +68,7 @@ Output: 4
                        double b = (double)p1[1] - k * p1[0];
                        if (lineCounts.find(k) == lineCounts.end()) {
                            lineCounts[k] = unordered_map<double,unordered_set<vector<int>*>>();
-                       } 
+                       }
                        if (lineCounts[k].find(b) == lineCounts[k].end()) {
                            lineCounts[k][b] = unordered_set<vector<int>*>();
                        }
@@ -96,6 +95,3 @@ Output: 4
    Runtime: 44 ms
 
    Memory: 20.5 MB
-
-   
-

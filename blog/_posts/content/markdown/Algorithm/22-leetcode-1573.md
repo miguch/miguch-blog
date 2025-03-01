@@ -1,9 +1,9 @@
 ---
 date: 2021-11-30
-tags: 
+tags:
   - LeetCode
   - Algorithm
-Author: Miguel Chen
+Author: Mingtao Chen
 ---
 
 # 1573. Number of Ways to Split a String
@@ -13,8 +13,6 @@ Given a binary string `s` (a string consisting only of '0's and '1's), we can sp
 Return the number of ways `s` can be split such that the number of characters '1' is the same in s1, s2, and s3.
 
 Since the answer may be too large, return it modulo 10^9 + 7.
-
- 
 
 **Example 1:**
 
@@ -52,8 +50,6 @@ Explanation: There are three ways to split s in 3 parts.
 Input: s = "100100010100110"
 Output: 12
 ```
-
- 
 
 **Constraints:**
 

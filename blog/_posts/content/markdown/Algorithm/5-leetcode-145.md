@@ -1,16 +1,16 @@
 ---
 date: 2021-2-18
-tags: 
+tags:
   - LeetCode
   - Algorithm
-Author: Miguel Chen
+Author: Mingtao Chen
 ---
 
 # LeetCode 145. Binary Tree Postorder Traversal
 
 ## 题目
 
-Given a binary tree, return the *postorder* traversal of its nodes' values.
+Given a binary tree, return the _postorder_ traversal of its nodes' values.
 
 **Example:**
 

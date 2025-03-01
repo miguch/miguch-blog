@@ -1,17 +1,16 @@
 ---
 date: 2021-2-18
-tags: 
+tags:
   - LeetCode
   - Algorithm
-Author: Miguel Chen
+Author: Mingtao Chen
 ---
-
 
 # 23. Merge k Sorted Lists
 
 ## 题目
 
-Merge *k* sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+Merge _k_ sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
 
 **Example:**
 
@@ -58,7 +57,7 @@ public:
         }
         return res;
     }
-    
+
     void clearEmptyList(vector<ListNode*>& nodeList) {
         for (int i = 0; i < nodeList.size(); i++) {
             if (nodeList[i] == nullptr) {
@@ -67,7 +66,7 @@ public:
             }
         }
     }
-    
+
     ListNode* mergeKLists(vector<ListNode*>& lists) {
         vector<ListNode*> validNodes(lists);
         clearEmptyList(validNodes);
@@ -120,7 +119,7 @@ public:
         }
         return result;
     }
-    
+
     void clearEmptyList(vector<ListNode*>& nodeList) {
         for (int i = 0; i < nodeList.size(); i++) {
             if (nodeList[i] == nullptr) {
@@ -129,8 +128,8 @@ public:
             }
         }
     }
-    
-    
+
+
     ListNode* mergeKLists(vector<ListNode*>& lists) {
         vector<ListNode*> validNodes(lists);
         //clearEmptyList(validNodes);
@@ -147,4 +146,3 @@ public:
     }
 };
 ```
-

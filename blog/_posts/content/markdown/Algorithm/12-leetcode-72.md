@@ -1,15 +1,16 @@
 ---
 date: 2021-2-18
-tags: 
+tags:
   - LeetCode
   - Algorithm
-Author: Miguel Chen
+Author: Mingtao Chen
 ---
+
 # LeetCode 72. Edit Distance
 
 ## 题目
 
-Given two words *word1* and *word2*, find the minimum number of operations required to convert *word1* to *word2*.
+Given two words _word1_ and _word2_, find the minimum number of operations required to convert _word1_ to _word2_.
 
 You have the following 3 operations permitted on a word:
 
@@ -22,7 +23,7 @@ You have the following 3 operations permitted on a word:
 ```
 Input: word1 = "horse", word2 = "ros"
 Output: 3
-Explanation: 
+Explanation:
 horse -> rorse (replace 'h' with 'r')
 rorse -> rose (remove 'r')
 rose -> ros (remove 'e')
@@ -33,7 +34,7 @@ rose -> ros (remove 'e')
 ```
 Input: word1 = "intention", word2 = "execution"
 Output: 5
-Explanation: 
+Explanation:
 intention -> inention (remove 't')
 inention -> enention (replace 'i' with 'e')
 enention -> exention (replace 'n' with 'x')
@@ -43,15 +44,13 @@ exection -> execution (insert 'u')
 
 ## 分析
 
-​	这道题在课本上6.3也有出现，使用动态规划求解，其思路是将问题转换为求解 word1的前 m 个字符可以最少通过几步修改变为 word2的前 n 个字符，其中 m，n 分别为 word1，word2的长度，将该问题成为 $E(i,j)$。然后可以考虑到三种情况，$E(i-1,j), E(i, j-1)$与$E(i-1,j-1)$ 。对于word1[:i]，可以通过删除一个字符使问题变为$E(i-1,j)$, 或通过添加一个字符使问题变为$E(i, j-1)$. 若$word1[i] \neq word2[j]$ ，则可以通过替换一个字符使问题变为$E(i-1, j-1)$ , 否则可以直接匹配该位置。
+​ 这道题在课本上 6.3 也有出现，使用动态规划求解，其思路是将问题转换为求解 word1 的前 m 个字符可以最少通过几步修改变为 word2 的前 n 个字符，其中 m，n 分别为 word1，word2 的长度，将该问题成为 $E(i,j)$。然后可以考虑到三种情况，$E(i-1,j), E(i, j-1)$与$E(i-1,j-1)$ 。对于 word1[:i]，可以通过删除一个字符使问题变为$E(i-1,j)$, 或通过添加一个字符使问题变为$E(i, j-1)$. 若$word1[i] \neq word2[j]$ ，则可以通过替换一个字符使问题变为$E(i-1, j-1)$ , 否则可以直接匹配该位置。
 
-​	由以上思路可以构建出子问题表，大小为$(m+1,n+1)$ , 对于$E(i,j)$ , 其算法为：
+​ 由以上思路可以构建出子问题表，大小为$(m+1,n+1)$ , 对于$E(i,j)$ , 其算法为：
 
 $$E(i, j) = min\{E(i-1,j)+1, E(i, j-1)+1, E(i-1,j-1)+ diff(i,j)\}$$
 
-​	其中 $diff(i, j)$ 为1，若word1[i]=word2[j], 否则为0.
-
-
+​ 其中 $diff(i, j)$ 为 1，若 word1[i]=word2[j], 否则为 0.
 
 ### 代码
 

@@ -1,19 +1,18 @@
 ---
 date: 2021-10-31
-tags: 
+tags:
   - LeetCode
   - Algorithm
   - DFS
   - Backtracking
-Author: Miguel Chen
+Author: Mingtao Chen
 ---
+
 # 131. Palindrome Partitioning
 
 Given a string s, partition s such that every substring of the partition is a palindrome. Return all possible palindrome partitioning of s.
 
 A palindrome string is a string that reads the same backward as forward.
-
- 
 
 Example 1:
 
@@ -23,7 +22,6 @@ Example 2:
 
 Input: s = "a"
 Output: [["a"]]
- 
 
 Constraints:
 
@@ -32,7 +30,7 @@ s contains only lowercase English letters.
 
 ## Answer
 
-使用DFS+回溯，每步向前一个字符，若前段的字符串是回文则对后段递归
+使用 DFS+回溯，每步向前一个字符，若前段的字符串是回文则对后段递归
 
 ```cpp
 class Solution {
@@ -69,8 +67,4 @@ public:
 };
 ```
 
-复杂度： $O(2^N N)$ - 最差情况下DFS树的节点数 * 检测回文
-
-
-
-
+复杂度： $O(2^N N)$ - 最差情况下 DFS 树的节点数 \* 检测回文
