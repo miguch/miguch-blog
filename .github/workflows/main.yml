@@ -14,8 +14,8 @@ jobs:
           fetch-depth: 0
       - name: Install and Build
         run: |
-          yarn install
-          yarn build
+          npm install
+          npm run build
       # - uses: webfactory/ssh-agent@v0.4.1
       #   with:
       #     ssh-private-key: |
@@ -26,4 +26,3 @@ jobs:
       # - name: Deploy
       #   run: |
       #     rsync -av -e "ssh -p ${{ secrets.SERVER_SSH_PORT }}" blog/.vuepress/dist/ root@${{ secrets.BLOG_DOMAIN }}:${{ secrets.BLOG_SERVER_PATH }}
-
